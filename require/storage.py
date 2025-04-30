@@ -7,7 +7,7 @@ from contextlib import closing
 from django.core.exceptions import ImproperlyConfigured
 from django.core.files.base import File
 from django.core.files.storage import FileSystemStorage
-from django.contrib.staticfiles.storage import StaticFilesStorage, CachedStaticFilesStorage
+from django.contrib.staticfiles.storage import StaticFilesStorage, ManifestStaticFilesStorage
 from django.utils.encoding import force_text
 
 from require.conf import settings as require_settings
@@ -181,16 +181,6 @@ class OptimizedStaticFilesStorage(OptimizedFilesMixin, StaticFilesStorage):
     pass
 
 
-class OptimizedCachedStaticFilesStorage(OptimizedFilesMixin, CachedStaticFilesStorage):
+class OptimizedManifestStaticFilesStorage(OptimizedFilesMixin, ManifestStaticFilesStorage):
 
     pass
-
-
-try:
-    from django.contrib.staticfiles.storage import ManifestStaticFilesStorage
-except ImportError:  # Django < 1.7
-    pass
-else:
-    class OptimizedManifestStaticFilesStorage(OptimizedFilesMixin, ManifestStaticFilesStorage):
-
-        pass

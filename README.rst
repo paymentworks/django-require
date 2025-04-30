@@ -1,3 +1,5 @@
+*Forked to remove CachedStaticFilesStorage class, which is unused + unsupported by Django3.0+*
+
 django-require
 ==============
 

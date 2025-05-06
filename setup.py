@@ -13,7 +13,6 @@ setup(
     description = "A Django staticfiles post-processor for optimizing with RequireJS.",
     author = "Dave Hall",
     author_email = "dave@etianen.com",
-    url = "https://github.com/etianen/django-require",
     packages = [
         "require",
         "require.management",
